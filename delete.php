@@ -1,3 +1,15 @@
 <?php
+require("func.php");
 
-echo "DU vill ta bort bil med id: ". $_GET['id'];
+
+if(empty($_GET['id'])){
+        // Redirect tillbaka till startsidan med felmeddelande
+    header("Location:/?error=no_ID");
+}
+
+else{
+
+    deleteCar($_GET['id']);
+    // Redirect tillbaka till startsidan
+    header("Location:/");
+}
